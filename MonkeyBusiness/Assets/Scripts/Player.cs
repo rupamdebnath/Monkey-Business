@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
                 initialPush = true;
                 playerBody.velocity = new Vector2(playerBody.velocity.x, 18f);
                 target.gameObject.SetActive(false);
+                return;
             }
         }
     }

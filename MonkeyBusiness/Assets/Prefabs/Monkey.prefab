@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6288123339366602441}
   - component: {fileID: 6288123339366602442}
   - component: {fileID: 6288123339366602443}
+  - component: {fileID: 437618080}
   m_Layer: 0
   m_Name: Monkey
   m_TagString: Untagged
@@ -133,3 +134,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &437618080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288123339366602446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c731c20e3c1f7b4d97ccb31dd1ca726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  normalPush: 10
+  extraPush: 14
