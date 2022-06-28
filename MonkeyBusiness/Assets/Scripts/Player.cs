@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D playerBody;
 
-    public float moveSpeed = 2f;
+    public float moveSpeed;
     public float normalPush = 10f;
     public float extraPush = 14f;
 
@@ -20,9 +21,21 @@ public class Player : MonoBehaviour
         playerBody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        Move();
+    }
+
+    private void Move()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+        {
+            playerBody.velocity = new Vector2(moveSpeed, playerBody.velocity.y);
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            playerBody.velocity = new Vector2(-moveSpeed, playerBody.velocity.y);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D target)
