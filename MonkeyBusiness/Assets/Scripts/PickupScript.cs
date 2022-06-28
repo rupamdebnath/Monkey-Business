@@ -22,10 +22,7 @@ public class PickupScript : MonoBehaviour
         {
             newBanana = Instantiate(bigBanana, spawnPoint.position, Quaternion.identity);
         }
+        newBanana.transform.parent = transform;
     }
 
-    void Update()
-    {
-        
-    }
 }

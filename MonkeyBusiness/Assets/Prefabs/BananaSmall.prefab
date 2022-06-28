@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5219550010259545284}
   m_Layer: 0
   m_Name: BananaSmall
-  m_TagString: Untagged
+  m_TagString: Normalpush
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

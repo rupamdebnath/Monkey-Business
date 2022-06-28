@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private bool initialPush;
     private int pushCount;
-    private bool playerDied;
+    private bool playerDied = false;
 
     void Awake()
     {
@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (playerDied)
+            return;
         Move();
     }
 
@@ -40,7 +42,9 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D target)
     {
-        if(target.tag == "Extrapush")
+        if (playerDied)
+            return;
+        if (target.tag == "Extrapush")
         {
             if(!initialPush)
             {
@@ -49,6 +53,24 @@ public class Player : MonoBehaviour
                 target.gameObject.SetActive(false);
                 return;
             }
+        }
+        if(target.tag == "Normalpush")
+        {
+            playerBody.velocity = new Vector2(playerBody.velocity.x, normalPush);
+            target.gameObject.SetActive(false);
+            pushCount++;
+        }
+
+        if (target.tag == "Extrapush")
+        {
+            playerBody.velocity = new Vector2(playerBody.velocity.x, extraPush);
+            target.gameObject.SetActive(false);
+            pushCount++;
+        }
+        if(pushCount == 2)
+        {
+            pushCount = 0;
+            PlatformService.instance.SpawnPlatforms();
         }
     }
 }

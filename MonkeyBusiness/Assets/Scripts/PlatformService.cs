@@ -34,7 +34,7 @@ public class PlatformService : MonoBehaviour
         SpawnPlatforms();
     }
 
-    private void SpawnPlatforms()
+    public void SpawnPlatforms()
     {
         Vector2 temp = transform.position;
         GameObject newPlatform = null;
