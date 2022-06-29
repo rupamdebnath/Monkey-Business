@@ -26,6 +26,15 @@ public class GameManager : MonoBehaviour
     IEnumerator ReloadLevel()
     {
         yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
+    }
+    public void HomeButton()
+    {
+        StartCoroutine(GoToHome());
+    }
+    IEnumerator GoToHome()
+    {
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(0);
     }
 }
