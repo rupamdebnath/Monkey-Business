@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Extrapush
   - Normalpush
+  - BG
+  - Platform
+  - Enemy
   layers:
   - Default
   - TransparentFX
