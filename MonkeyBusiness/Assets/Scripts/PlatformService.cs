@@ -22,6 +22,10 @@ public class PlatformService : MonoBehaviour
     [SerializeField]
     private Transform parentPlatform;
 
+    [SerializeField]
+    private GameObject birdPrefab;
+
+    private float bird_x_min = -2.3f, bird_x_max = 2.3f, bird_y_offset = 7f;
     void Awake()
     {
         if (instance == null)
@@ -59,5 +63,20 @@ public class PlatformService : MonoBehaviour
             last_y += y_threshold;
             platform_spawned++;
         }
+        if (Random.Range(0, 2) > 0)
+            SpawnEnemy();
+    }
+
+    private void SpawnEnemy()
+    {
+        Vector2 birdPosition = transform.position;
+
+        birdPosition.x = Random.Range(bird_x_min, bird_x_max);
+
+        birdPosition.y += bird_y_offset;
+
+        GameObject birdObject = Instantiate(birdPrefab, birdPosition, Quaternion.identity);
+        birdObject.transform.SetParent(parentPlatform);
+
     }
 }
