@@ -9,6 +9,7 @@ TagManager:
   - BG
   - Platform
   - Enemy
+  - FallBound
   layers:
   - Default
   - TransparentFX

@@ -67,6 +67,11 @@ public class Player : MonoBehaviour
             target.gameObject.SetActive(false);
             pushCount++;
         }
+        if(target.tag == "FallBound" || target.tag == "Enemy")
+        {
+            playerDied = true;
+            GameManager.instance.PlayerDeath();
+        }
         if(pushCount == 2)
         {
             pushCount = 0;
