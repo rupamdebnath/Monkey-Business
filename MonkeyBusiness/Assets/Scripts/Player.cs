@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
                 target.gameObject.SetActive(false);
                 return;
             }
+            CalculateScore.instance.ExtraScore();
             playerBody.velocity = new Vector2(playerBody.velocity.x, extraPush);
             target.gameObject.SetActive(false);
             pushCount++;
@@ -61,15 +62,12 @@ public class Player : MonoBehaviour
         if(target.tag == "Normalpush")
         {
             SoundManager.instance.PlaySound(2);
+            CalculateScore.instance.NormalScore();
             playerBody.velocity = new Vector2(playerBody.velocity.x, normalPush);
             target.gameObject.SetActive(false);
             pushCount++;
         }
 
-        //if (target.tag == "Extrapush")
-        //{
-
-        //}
         if(target.tag == "FallBound" || target.tag == "Enemy")
         {
             playerDied = true;
