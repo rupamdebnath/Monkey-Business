@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject DeathMenu;
+
+    public GameObject ScoreText;
 
     void Awake()
     {
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDeath()
     {
         DeathMenu.SetActive(true);
+        ScoreText.GetComponent<TextMeshProUGUI>().SetText("Your Score:" + CalculateScore.instance.FetchScore());
         SoundManager.instance.StopSound(0);
         SoundManager.instance.PlaySound(3);
     }

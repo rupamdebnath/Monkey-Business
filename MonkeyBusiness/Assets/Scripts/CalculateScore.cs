@@ -31,4 +31,9 @@ public class CalculateScore : MonoBehaviour
     {
         scoreValue += 50;
     }
+
+    public int FetchScore()
+    {
+        return scoreValue;
+    }
 }
