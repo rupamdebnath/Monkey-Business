@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDeath()
     {
-        DeathMenu.SetActive(true);        
+        DeathMenu.SetActive(true);
+        SoundManager.instance.StopSound(0);
+        SoundManager.instance.PlaySound(3);
     }
     public void RestartButton()
     {
@@ -25,8 +27,10 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator ReloadLevel()
     {
+        SoundManager.instance.PlaySound(1);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(1);
+        SoundManager.instance.PlaySound(0);
     }
     public void HomeButton()
     {
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator GoToHome()
     {
+        SoundManager.instance.PlaySound(1);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(0);
     }

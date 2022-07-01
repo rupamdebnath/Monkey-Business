@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
             return;
         if (target.tag == "Extrapush")
         {
+            SoundManager.instance.PlaySound(2);
             if(!initialPush)
             {
                 initialPush = true;
@@ -53,20 +54,22 @@ public class Player : MonoBehaviour
                 target.gameObject.SetActive(false);
                 return;
             }
+            playerBody.velocity = new Vector2(playerBody.velocity.x, extraPush);
+            target.gameObject.SetActive(false);
+            pushCount++;
         }
         if(target.tag == "Normalpush")
         {
+            SoundManager.instance.PlaySound(2);
             playerBody.velocity = new Vector2(playerBody.velocity.x, normalPush);
             target.gameObject.SetActive(false);
             pushCount++;
         }
 
-        if (target.tag == "Extrapush")
-        {
-            playerBody.velocity = new Vector2(playerBody.velocity.x, extraPush);
-            target.gameObject.SetActive(false);
-            pushCount++;
-        }
+        //if (target.tag == "Extrapush")
+        //{
+
+        //}
         if(target.tag == "FallBound" || target.tag == "Enemy")
         {
             playerDied = true;
