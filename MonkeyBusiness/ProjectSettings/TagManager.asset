@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Extrapush
+  - Normalpush
+  - BG
+  - Platform
+  - Enemy
+  - FallBound
   layers:
   - Default
   - TransparentFX
